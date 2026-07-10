@@ -1,7 +1,3 @@
-// ============================================================
-// PORTFÓLIO — script.js
-// ============================================================
-
 document.addEventListener('DOMContentLoaded', () => {
   setYear();
   highlightActiveNav();
@@ -14,18 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
   setupGalleryLightbox();
 });
 
-// ============================================================
-// SONS — sintetizados via Web Audio API (nenhum arquivo externo).
-// Preferência de som salva no navegador (localStorage) e vale
-// para todas as páginas do site.
-// ============================================================
-
 const SOUND_KEY = 'portfolio-sound-enabled';
-let soundEnabled = localStorage.getItem(SOUND_KEY) !== 'false'; // ligado por padrão
+let soundEnabled = localStorage.getItem(SOUND_KEY) !== 'false';
 let audioCtx = null;
 
-// O navegador só libera áudio depois de uma interação do usuário.
-// Este listener "destrava" o contexto de áudio no primeiro clique/toque.
 function unlockAudioOnce(){
   getAudioCtx();
   document.removeEventListener('click', unlockAudioOnce);
@@ -44,7 +32,6 @@ function getAudioCtx(){
   return audioCtx;
 }
 
-// Toca um "bip" curto e sintético. type/freq/duration controlam o timbre.
 function playTone({ freq = 440, duration = 0.08, type = 'sine', gain = 0.05, glideTo = null } = {}){
   if (!soundEnabled) return;
   const ctx = getAudioCtx();
@@ -67,12 +54,10 @@ function playHoverSound(){ playTone({ freq: 740, duration: 0.05, type: 'sine', g
 function playClickSound(){ playTone({ freq: 260, duration: 0.09, type: 'square', gain: 0.045, glideTo: 120 }); }
 function playToggleSound(on){ playTone({ freq: on ? 660 : 300, duration: 0.09, type: 'triangle', gain: 0.05, glideTo: on ? 880 : 220 }); }
 
-// Tique curto e levemente aleatório — o "som de código" sendo digitado.
 function playTypingTick(){
   playTone({ freq: 1000 + Math.random() * 500, duration: 0.018, type: 'square', gain: 0.02 });
 }
 
-// Liga/desliga o som e lembra a escolha em todas as páginas do site.
 function setupSoundToggle(){
   const btn = document.getElementById('sound-toggle');
   if (!btn) return;
@@ -94,7 +79,6 @@ function updateSoundToggleUI(btn){
   btn.setAttribute('aria-pressed', String(soundEnabled));
 }
 
-// Bipe curto ao passar o mouse / clicar em elementos interativos.
 function setupInteractionSounds(){
   const hoverables = document.querySelectorAll(
     '.btn, nav a, .module-card, .prevnext a, .proj-link, .brand, .gallery-item:has(img), .diagram-frame:has(img)'
@@ -105,9 +89,6 @@ function setupInteractionSounds(){
   });
 }
 
-// Efeito de "digitação de código" no título da home, com tique sonoro
-// por caractere. Some/reduz automaticamente se o usuário preferir
-// menos movimento na tela.
 function runTypewriter(){
   const el = document.querySelector('.typewriter');
   if (!el) return;
@@ -137,16 +118,14 @@ function runTypewriter(){
   setTimeout(typeNext, 300);
 }
 
-// Atualiza o ano no rodapé automaticamente
 function setYear(){
   const el = document.getElementById('year');
   if (el) el.textContent = new Date().getFullYear();
 }
 
-// Marca o link do menu correspondente à página atual
 function highlightActiveNav(){
   const current = window.location.pathname.split('/').pop() || 'index.html';
-  const projectPages = ['cleangrow.html', 'visiongate.html']; // páginas dentro de projetos/*/
+  const projectPages = ['cleangrow.html', 'visiongate.html'];
   const target = projectPages.includes(current) ? 'projetos.html' : current;
   document.querySelectorAll('nav a[href]').forEach(link => {
     const hrefBase = link.getAttribute('href').split('/').pop();
@@ -154,8 +133,6 @@ function highlightActiveNav(){
   });
 }
 
-// Anima um "pulso" de sinal elétrico descendo a trilha central de cobre.
-// Respeita a preferência de "reduzir movimento" do usuário.
 function runSignalPulse(){
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const pulse = document.querySelector('.pulse-line');
@@ -171,8 +148,6 @@ function runSignalPulse(){
   requestAnimationFrame(animate);
 }
 
-// Preenche as barras de habilidade (usadas em habilidades.html) com uma
-// pequena animação de "carregamento de sinal" ao entrar na viewport.
 function animateSkillBars(){
   const bars = document.querySelectorAll('.skill-bar-fill[data-level]');
   if (!bars.length) return;
@@ -193,11 +168,6 @@ function animateSkillBars(){
   });
 }
 
-// Formulário de contato (contato.html): envia de verdade via Web3Forms
-// (https://web3forms.com) — serviço gratuito que funciona em sites
-// estáticos como o GitHub Pages, sem precisar de servidor próprio.
-// Antes de usar, troque o "access_key" oculto no contato.html pela sua
-// chave gratuita (basta digitar seu e-mail no site deles, sem criar conta).
 function setupContactForm(){
   const form = document.getElementById('contact-form');
   if (!form) return;
@@ -254,10 +224,6 @@ function setupContactForm(){
   });
 }
 
-// Galeria de fotos/diagramas: clique em qualquer item que já tenha uma
-// <img> dentro para abrir em tela cheia (lightbox). Itens que ainda são
-// só placeholder (sem <img>) não fazem nada — vira funcional assim que
-// você substituir o placeholder por uma foto real.
 function setupGalleryLightbox(){
   const items = document.querySelectorAll('.gallery-item, .diagram-frame');
   if (!items.length) return;
@@ -284,7 +250,7 @@ function setupGalleryLightbox(){
 
   items.forEach(item => {
     const img = item.querySelector('img');
-    if (!img) return; // ainda é só um placeholder, nada a abrir
+    if (!img) return;
     item.addEventListener('click', () => openLightbox(img));
   });
 
