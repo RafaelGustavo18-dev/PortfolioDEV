@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rafael Gustavo — Portfólio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <a href="index.html" class="brand"><span class="dot"></span>Rafael Gustavo</a>
+    <div class="nav-right">
+      <nav>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="formacao.html">Formação</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="habilidades.html">Skills</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+      <button id="sound-toggle" class="sound-toggle" type="button" aria-pressed="true" title="Ativar ou desativar sons">
+      <span class="sound-label">Efeitos Sonoros</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="spine" aria-hidden="true">
+    <svg viewBox="0 0 2 1000" preserveAspectRatio="none">
+      <line x1="1" y1="0" x2="1" y2="1000" stroke="var(--trace-dim)" stroke-width="2"/>
+      <line class="pulse-line" x1="1" y1="0" x2="1" y2="1000" stroke="var(--copper)" stroke-width="2" stroke-dasharray="14 986" />
+    </svg>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="panel chip">
+      <span class="kicker">// perfil.chip</span>
+      <h1 class="typewriter" data-text="Rafael_Gustavo.dev"><span class="cursor">_</span></h1>
+      <p class="role">Técnico em Desenvolvimento de Sistemas · Robótica &amp; Programação</p>
+      <div class="pins">
+        <span class="pin">T.I.</span>
+        <span class="pin">Suporte Técnico</span>
+        <span class="pin">Administrativo</span>
+        <span class="pin">Comercial</span>
+      </div>
+      <div class="cta-row">
+        <a href="projetos.html" class="btn btn-primary">Ver projetos</a>
+        <a href="contato.html" class="btn btn-ghost">Contato</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="pad" aria-hidden="true"></div>
+
+  <!-- MAPA DO SITE, ESTILO "DIAGRAMA DE MÓDULOS" -->
+  <section>
+    <span class="kicker">// mapa.circuito</span>
+    <h2>Explore cada módulo</h2>
+    <div class="module-grid">
+
+      <a href="sobre.html" class="panel module-card">
+        <div class="module-id">MOD. 01 — SOBRE</div>
+        <h3>Objetivo</h3>
+        <p>Quem eu sou e o que busco profissionalmente.</p>
+        <div class="module-arrow">abrir módulo →</div>
+      </a>
+
+      <a href="formacao.html" class="panel module-card">
+        <div class="module-id">MOD. 02 — FORMAÇÃO</div>
+        <h3>Formação &amp; cursos</h3>
+        <p>Trajetória de estudos até aqui.</p>
+        <div class="module-arrow">abrir módulo →</div>
+      </a>
+
+      <a href="projetos.html" class="panel module-card">
+        <div class="module-id">MOD. 03 — PROJETOS</div>
+        <h3>Projetos</h3>
+        <p>O que já construí com as próprias mãos.</p>
+        <div class="module-arrow">abrir módulo →</div>
+      </a>
+
+      <a href="habilidades.html" class="panel module-card">
+        <div class="module-id">MOD. 04 — SKILLS</div>
+        <h3>Habilidades</h3>
+        <p>Linguagens, ferramentas e perfil de trabalho.</p>
+        <div class="module-arrow">abrir módulo →</div>
+      </a>
+
+      <a href="contato.html" class="panel module-card">
+        <div class="module-id">MOD. 05 — CONTATO</div>
+        <h3>Contato</h3>
+        <p>Canais pra falar comigo sobre oportunidades.</p>
+        <div class="module-arrow">abrir módulo →</div>
+      </a>
+
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Rafael Gustavo · feito com fios, solda e algumas linhas de código
+  </footer>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

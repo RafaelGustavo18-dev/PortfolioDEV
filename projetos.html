@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projetos — Rafael Gustavo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <a href="index.html" class="brand"><span class="dot"></span>Rafael Gustavo</a>
+    <div class="nav-right">
+      <nav>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="formacao.html">Formação</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="habilidades.html">Skills</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+      <button id="sound-toggle" class="sound-toggle" type="button" aria-pressed="true" title="Ativar ou desativar sons">
+      <span class="sound-label">Efeitos Sonoros</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="spine" aria-hidden="true">
+    <svg viewBox="0 0 2 1000" preserveAspectRatio="none">
+      <line x1="1" y1="0" x2="1" y2="1000" stroke="var(--trace-dim)" stroke-width="2"/>
+      <line class="pulse-line" x1="1" y1="0" x2="1" y2="1000" stroke="var(--copper)" stroke-width="2" stroke-dasharray="14 986" />
+    </svg>
+  </div>
+
+  <section class="page-hero">
+    <span class="page-eyebrow">Módulo 03</span>
+    <h1>Projetos</h1>
+  </section>
+
+  <div class="pad" aria-hidden="true"></div>
+
+  <section>
+    <div class="proj-grid">
+
+      <div class="panel proj-card">
+        <div class="proj-index">PROJ. 01</div>
+        <img src="projetos/cleangrow/cleangrow.png" alt="Logo CleanGrow" class="proj-thumb">
+        <h3>CleanGrow</h3>
+        <p>O projeto "CleanGrow" integra sustentabilidade e automação escolar por meio de um sistema IoT integrado (Firebase/ESP32) que monitora uma composteira e um minhocário. Além disso, o sistema gerencia o reaproveitamento de água condensada de aparelhos de ar-condicionado para irrigar um viveiro de mudas de forma eficiente e automatizada.</p>
+        <a href="projetos/cleangrow/cleangrow.html" class="proj-link">Ver mais →</a>
+      </div>
+
+      <div class="panel proj-card">
+        <div class="proj-index">PROJ. 02</div>
+        <img src="projetos/visiongate/visiongate.png" alt="Logo VisionGate" class="proj-thumb">
+        <h3>VisionGate</h3>
+        <p>O projeto "VisionGate" integra automação e gestão escolar por meio de um sistema IoT (Arduino) com inteligência artificial que substitui o controle de acesso por pastas. O sistema utiliza Python (FastAPI), JavaScript e C++ para automatizar o registro de frequência em tempo real, combatendo a evasão escolar e otimizando o tempo de aula de forma eficiente.</p>
+        <a href="projetos/visiongate/visiongate.html" class="proj-link">Ver mais →</a>
+      </div>
+
+      <div class="panel proj-card">
+        <div class="proj-index">PROJ. 03</div>
+        <div class="proj-thumb">imagem / gif do projeto</div>
+        <h3>Nome do projeto</h3>
+        <p>Descreva aqui em 1–2 frases o que o projeto faz e quais tecnologias você usou.</p>
+        <a href="#" class="proj-link">Ver mais →</a>
+      </div>
+    </div>
+
+    <div class="prevnext">
+      <a href="formacao.html" class="prev">
+        <span>← módulo anterior</span>
+        <strong>Formação</strong>
+      </a>
+      <a href="habilidades.html" class="next">
+        <span>próximo módulo →</span>
+        <strong>Habilidades</strong>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Rafael Gustavo · feito com fios, solda e algumas linhas de código
+  </footer>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

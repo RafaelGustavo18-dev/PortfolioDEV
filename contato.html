@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contato — Rafael Gustavo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <a href="index.html" class="brand"><span class="dot"></span>Rafael Gustavo</a>
+    <div class="nav-right">
+      <nav>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="formacao.html">Formação</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+          <li><a href="habilidades.html">Skills</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+      <button id="sound-toggle" class="sound-toggle" type="button" aria-pressed="true" title="Ativar ou desativar sons">
+      <span class="sound-label">Efeitos Sonoros</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="spine" aria-hidden="true">
+    <svg viewBox="0 0 2 1000" preserveAspectRatio="none">
+      <line x1="1" y1="0" x2="1" y2="1000" stroke="var(--trace-dim)" stroke-width="2"/>
+      <line class="pulse-line" x1="1" y1="0" x2="1" y2="1000" stroke="var(--copper)" stroke-width="2" stroke-dasharray="14 986" />
+    </svg>
+  </div>
+
+  <section class="page-hero">
+    <span class="page-eyebrow">Módulo 05</span>
+    <h1>Contato</h1>
+  </section>
+
+  <div class="pad" aria-hidden="true"></div>
+
+  <section>
+    <div class="panel contact-panel">
+      <p>Aberto a estágio com horário flexível. Chame nos canais abaixo.</p>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <span class="g-label">E-mail</span>
+          <a href="mailto:rafael18contato@gmail.com">rafael18contato</a>
+        </div>
+        <div class="contact-item">
+          <span class="g-label">GitHub</span>
+          <a href="#" target="_blank" rel="noopener">github.com/</a>
+        </div>
+        <div class="contact-item">
+          <span class="g-label">LinkedIn</span>
+          <a href="https://www.linkedin.com/in/rafael-gustavo-primo-camero-378aa0313" target="_blank" rel="noopener">rafael-gustavo-primo-camero-378aa0313/</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pad" aria-hidden="true"></div>
+
+    <div class="panel contact-form">
+      <span class="kicker">// enviar.sinal</span>
+      <form id="contact-form">
+        <!-- Chave gratuita do Web3Forms — pegue a sua em https://web3forms.com
+             (só precisa digitar seu e-mail lá, sem criar conta) e troque o
+             valor abaixo pela chave que você receber. -->
+        <input type="hidden" name="access_key" value="COLOQUE_SUA_ACCESS_KEY_AQUI">
+        <input type="hidden" name="subject" value="Nova mensagem pelo portfólio">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="form-row">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" required>
+        </div>
+        <div class="form-row">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-row">
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" required></textarea>
+        </div>
+        <div class="form-row">
+          <button type="submit" class="btn btn-primary">Enviar mensagem</button>
+        </div>
+        <p id="form-feedback" style="font-size:12px; color:var(--text-faint); margin-top:14px;"></p>
+      </form>
+    </div>
+
+    <div class="prevnext">
+      <a href="habilidades.html" class="prev">
+        <span>← módulo anterior</span>
+        <strong>Habilidades</strong>
+      </a>
+      <a href="index.html" class="next">
+        <span>voltar ao início →</span>
+        <strong>Início</strong>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Rafael Gustavo · feito com fios, solda e algumas linhas de código
+  </footer>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
