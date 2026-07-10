@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CleanGrow — Rafael Gustavo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <a href="../../index.html" class="brand"><span class="dot"></span>Rafael Gustavo</a>
+    <div class="nav-right">
+      <nav>
+        <ul>
+          <li><a href="../../index.html">Início</a></li>
+          <li><a href="../../sobre.html">Sobre</a></li>
+          <li><a href="../../formacao.html">Formação</a></li>
+          <li><a href="../../projetos.html">Projetos</a></li>
+          <li><a href="../../habilidades.html">Skills</a></li>
+          <li><a href="../../contato.html">Contato</a></li>
+        </ul>
+      </nav>
+      <button id="sound-toggle" class="sound-toggle" type="button" aria-pressed="true" title="Ativar ou desativar sons">
+        <span class="sound-label">Efeitos Sonoros</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="spine" aria-hidden="true">
+    <svg viewBox="0 0 2 1000" preserveAspectRatio="none">
+      <line x1="1" y1="0" x2="1" y2="1000" stroke="var(--trace-dim)" stroke-width="2"/>
+      <line class="pulse-line" x1="1" y1="0" x2="1" y2="1000" stroke="var(--copper)" stroke-width="2" stroke-dasharray="14 986" />
+    </svg>
+  </div>
+
+  <!-- CABEÇALHO DO PROJETO -->
+  <section class="page-hero">
+    <span class="breadcrumb"><a href="../../projetos.html">Projetos</a> / CleanGrow</span>
+    <div class="project-logo"><img src="cleangrow.png" alt="Logo CleanGrow"></div>
+    <span class="page-eyebrow">Proj. 01 — IoT &amp; Sustentabilidade</span>
+    <h1>CleanGrow</h1>
+    <p class="project-tagline">Sistema IoT que monitora composteira e minhocário e reaproveita água condensada de ar-condicionado para irrigar um viveiro de mudas — de forma automática.</p>
+    <div class="project-tags">
+      <span class="pin">Finalizado</span>
+      <span class="pin">ESP32</span>
+      <span class="pin">Firebase</span>
+      <span class="pin">IoT</span>
+      <span class="pin">Sustentabilidade</span>
+    </div>
+  </section>
+
+  <div class="pad" aria-hidden="true"></div>
+
+  <!-- VISÃO GERAL -->
+  <section>
+    <span class="kicker">// visao.geral</span>
+    <h2>O que é o CleanGrow</h2>
+    <div class="panel prose">
+      <p>O <strong>CleanGrow</strong> integra sustentabilidade e automação escolar por meio de um sistema IoT (Firebase + ESP32) que monitora uma <strong>composteira</strong> e um <strong>minhocário</strong> ao mesmo tempo. Os dados dos sensores são enviados para um Firebase Realtime Database e exibidos em um Site web feito em HTML, CSS e JavaScript puro.</p>
+      <p>Além do monitoramento, o sistema gerencia o <strong>reaproveitamento de água condensada</strong> de aparelhos de ar-condicionado para irrigar um viveiro de mudas de forma eficiente e automatizada — fechando o ciclo entre resíduo orgânico, água reaproveitada e novas plantas.</p>
+    </div>
+  </section>
+
+  <div class="pad" aria-hidden="true"></div>
+
+  <!-- ARQUITETURA / DIAGRAMA -->
+  <section>
+    <span class="kicker">// arquitetura</span>
+    <h2>Como funciona</h2>
+    <p class="section-sub" style="text-align:center; margin-bottom:24px;">clique em um diagrama pra ampliar</p>
+
+    <!-- DOIS DIAGRAMAS — troque cada bloco por:
+         <div class="panel diagram-frame"><img src="cleangrow-diagrama-hardware.png" alt="..."></div> -->
+    <div class="diagram-grid">
+      <div class="panel diagram-frame">
+        <span class="frame-icon">🔌</span>
+        <span>Diagrama de hardware</span>
+        <img src="diagramas/ligacao.png" alt="Diagrama de Ligação" class="proj-thumb">
+      </div>
+      <div class="panel diagram-frame">
+        <span class="frame-icon">🗺️</span>
+        <span>Diagrama de fluxo de dados</span>
+        <img src="diagramas/comunicacao.png" alt="Diagrama de Comunicação" class="proj-thumb">
+      </div>
+    </div>
+
+    <div class="panel flow-grid" style="margin-top: 18px;">
+      <div class="flow-step">
+        <div class="flow-index">01 · SENSORES</div>
+        <h4>Coleta</h4>
+        <p>Temperatura/umidade, gases, chuva e nível de água — na composteira e no minhocário.</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-index">02 · ESP32</div>
+        <h4>Processamento</h4>
+        <p>Lê os sensores e controla o reaproveitamento da água condensada do ar-condicionado.</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-index">03 · FIREBASE</div>
+        <h4>Armazenamento</h4>
+        <p>Realtime Database guarda as leituras mais recentes de cada zona, em tempo real.</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-index">04 · IRRIGAÇÃO</div>
+        <h4>Automação</h4>
+        <p>Água reaproveitada é direcionada automaticamente para o viveiro de mudas.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="pad" aria-hidden="true"></div>
+
+  <!-- FUNCIONALIDADES -->
+  <section>
+    <span class="kicker">// funcionalidades</span>
+    <h2>O que o Site mostra</h2>
+    <div class="panel prose">
+      <ul>
+        <li><strong>Temperatura e umidade</strong> da composteira e do minhocário.</li>
+        <li><strong>Nível de gases</strong> em cada zona.</li>
+        <li><strong>Detecção de chuva</strong> via sensor dedicado.</li>
+        <li><strong>Status do reservatório de água</strong> reaproveitada do ar-condicionado (somente para autorizados).</li>
+        <li><strong>Irrigação automatizada</strong> do viveiro de mudas (somente para autorizados).</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="pad" aria-hidden="true"></div>
+
+  <!-- STACK TÉCNICO -->
+  <section>
+    <span class="kicker">// stack</span>
+    <h2>Tecnologias</h2>
+    <div class="panel stack-panel">
+      <div class="skill-group">
+        <span class="g-label">Firmware</span>
+        <div class="tags">
+          <span class="tag">ESP32</span>
+          <span class="tag">C / C++ (Arduino)</span>
+          <span class="tag">Sensores de temp/umidade</span>
+          <span class="tag">Sensor de gases</span>
+          <span class="tag">Sensor de chuva</span>
+          <span class="tag">Sensor de nível de água</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <span class="g-label">Backend &amp; Dashboard</span>
+        <div class="tags">
+          <span class="tag">Firebase Realtime Database</span>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="pad" aria-hidden="true"></div>
+
+  <!-- GALERIA -->
+  <section>
+    <span class="kicker">// galeria</span>
+    <h2>Fotos</h2>
+    <p class="section-sub" style="text-align:center; margin-bottom:24px;">clique em uma foto pra ampliar</p>
+
+    <!-- Cada item vira clicável (com zoom) automaticamente assim que
+         você trocar o placeholder por uma <img>, por exemplo:
+         <div class="gallery-item">
+           <img src="cleangrow-01.jpg" alt="Montagem da placa">
+           <div class="gallery-caption">Montagem da placa</div>
+         </div> -->
+
+    <div class="gallery-grid">
+
+      <div class="gallery-item">
+        <span class="frame-icon">📷</span>
+        <img src="fotos/IMG (1).jpg" alt="CleanGrow funcionando 100% autonomo." class="proj-thumb">
+      </div>
+
+      <div class="gallery-item">
+        <span class="frame-icon">📷</span>
+        <img src="fotos/IMG (2).jpg" alt="Mudas produzidas de forma sustentável." class="proj-thumb">
+      </div>
+
+      <div class="gallery-item">
+        <span class="frame-icon">📷</span>
+        <img src="fotos/IMG (3).jpg" alt="Composto em processo de degradação." class="proj-thumb">
+      </div>
+
+      <div class="gallery-item">
+        <span class="frame-icon">📷</span>
+        <img src="fotos/IMG (4).jpg" alt="Alimentos descartados sendo utilizados para criação de composto." class="proj-thumb">
+      </div>
+
+      <div class="gallery-item">
+        <span class="frame-icon">📷</span>
+        <img src="fotos/IMG (5).jpg" alt="Construção da composteira." class="proj-thumb">
+      </div>
+
+      <div class="gallery-item">
+        <span class="frame-icon">📷</span>
+        <img src="fotos/IMG (6).jpeg" alt="Início da construção da composteira." class="proj-thumb">
+      </div>
+
+    </div>
+  </section>
+
+  <div class="pad" aria-hidden="true"></div>
+
+  <!-- LINKS -->
+  <section>
+    <span class="kicker">// links</span>
+    <h2>Explorar o projeto</h2>
+    <div class="panel link-row">
+      <a href="https://github.com/CleanGrow/CleanGrowPublic" class="btn btn-primary" target="_blank" rel="noopener">Ver repositório →</a>
+      <a href="https://cleangrow.github.io/CleanGrowPublic/" class="btn btn-primary" target="_blank" rel="noopener">Link do Site →</a>
+    </div>
+
+    <div class="prevnext">
+      <a href="../../projetos.html" class="prev">
+        <span>← voltar</span>
+        <strong>Todos os projetos</strong>
+      </a>
+      <a href="../../contato.html" class="next">
+        <span>fale comigo →</span>
+        <strong>Contato</strong>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Rafael Gustavo · feito com fios, solda e algumas linhas de código
+  </footer>
+</div>
+
+<!-- LIGHTBOX (fica escondido até uma foto real ser clicada) -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" type="button">fechar ✕</button>
+  <img src="" alt="">
+  <div class="lightbox-caption"></div>
+</div>
+
+<script src="../../js/script.js"></script>
+</body>
+</html>
