@@ -209,7 +209,7 @@ function setupContactForm(){
     e.preventDefault();
 
     const accessKey = form.querySelector('[name="access_key"]')?.value || '';
-    if (!accessKey || accessKey === '5add3b74-e683-498a-92bf-d5edefc94b2f'){
+    if (!accessKey || accessKey === 'COLOQUE_SUA_ACCESS_KEY_AQUI'){
       if (feedback){
         feedback.textContent = 'Formulário ainda não configurado: falta colocar a access_key do Web3Forms no contato.html.';
         feedback.style.color = 'var(--text-faint)';
