@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VisionGate — Rafael Gustavo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <a href="../../index.html" class="brand"><span class="dot"></span>Rafael Gustavo</a>
+    <div class="nav-right">
+      <nav>
+        <ul>
+          <li><a href="../../index.html">Início</a></li>
+          <li><a href="../../sobre.html">Sobre</a></li>
+          <li><a href="../../formacao.html">Formação</a></li>
+          <li><a href="../../projetos.html">Projetos</a></li>
+          <li><a href="../../habilidades.html">Skills</a></li>
+          <li><a href="../../contato.html">Contato</a></li>
+        </ul>
+      </nav>
+      <button id="sound-toggle" class="sound-toggle" type="button" aria-pressed="true" title="Ativar ou desativar sons">
+        <span class="sound-label">Efeitos Sonoros</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="spine" aria-hidden="true">
+    <svg viewBox="0 0 2 1000" preserveAspectRatio="none">
+      <line x1="1" y1="0" x2="1" y2="1000" stroke="var(--trace-dim)" stroke-width="2"/>
+      <line class="pulse-line" x1="1" y1="0" x2="1" y2="1000" stroke="var(--copper)" stroke-width="2" stroke-dasharray="14 986" />
+    </svg>
+  </div>
+
+  <section class="page-hero">
+    <span class="breadcrumb"><a href="../../projetos.html">Projetos</a> / VisionGate</span>
+    <div class="project-logo"><img src="visiongate.png" alt="Logo VisionGate"></div>
+    <span class="page-eyebrow">Proj. 02 — IoT &amp; Automação Escolar</span>
+    <h1>VisionGate</h1>
+    <p class="project-tagline">Sistema IoT e de Visão Computacional que monitora o fluxo de alunos na portaria e automatiza o registro de presença e atrasos na secretaria escolar — de forma automática.</p>
+    <div class="project-tags">
+      <span class="pin">Finalizado</span>
+      <span class="pin">ESP32 / Arduino</span>
+      <span class="pin">FastAPI</span>
+      <span class="pin">IoT</span>
+      <span class="pin">Python</span>
+    </div>
+  </section>
+
+  <div class="pad" aria-hidden="true"></div>
+
+  <section>
+    <span class="kicker">// visao.geral</span>
+    <h2>O que é o VisionGate</h2>
+    <div class="panel prose">
+      <p>O <strong>VisionGate</strong> integra automação e gestão escolar por meio de um sistema IoT (FastAPI + ESP32) que monitora a <strong>portaria</strong> e os <strong>pontos de acesso</strong> ao mesmo tempo. Os dados dos leitores e módulos são enviados para uma API REST própria e exibidos em um Site web feito em HTML, CSS e JavaScript puro.</p>
+      <p>Além do monitoramento, o sistema gerencia o <strong>reaproveitamento do tempo de registro</strong> de alunos atrasados para otimizar as rotinas da secretaria de forma eficiente e automatizada — fechando o ciclo entre a chegada do estudante, o processamento de dados e a notificação em tempo real.</p>
+    </div>
+  </section>
+
+  <div class="pad" aria-hidden="true"></div>
+
+  <section>
+    <span class="kicker">// arquitetura</span>
+    <h2>Como funciona</h2>
+    <p class="section-sub" style="text-align:center; margin-bottom:24px;">clique em um diagrama pra ampliar</p>
+
+    <div class="diagram-grid">
+      <div class="panel diagram-frame">
+        <span class="frame-icon">🔌</span>
+        <span>Diagrama de hardware</span>
+        <img src="diagramas/ligacao.png" alt="Diagrama de Ligação">
+      </div>
+      <div class="panel diagram-frame">
+        <span class="frame-icon">🗺️</span>
+        <span>Diagrama de fluxo de dados</span>
+        <img src="diagramas/comunicacao.png" alt="Diagrama de Comunicação">
+      </div>
+    </div>
+
+    <div class="panel flow-grid" style="margin-top: 18px;">
+      <div class="flow-step">
+        <div class="flow-index">01 · MÓDULOS</div>
+        <h4>Coleta</h4>
+        <p>Leitura facial, biometria e status da catraca — na portaria principal e entradas secundárias.</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-index">02 · ARDUINO UNO</div>
+        <h4>Processamento</h4>
+        <p>Lê os dados periféricos de hardware e controla o acionamento físico do portão ou sinalizador.</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-index">03 · FAST-API</div>
+        <h4>Armazenamento</h4>
+        <p>O backend em Python com banco SQL guarda as leituras mais recentes de cada zona, em tempo real.</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-index">04 · DASHBOARD</div>
+        <h4>Automação</h4>
+        <p>Os dados processados são direcionados automaticamente para o painel de monitoramento da secretaria.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="pad" aria-hidden="true"></div>
+
+  <section>
+    <span class="kicker">// funcionalidades</span>
+    <h2>O que o Site mostra</h2>
+    <div class="panel prose">
+      <ul>
+        <li><strong>Status e horários</strong> de entrada e saída da portaria.</li>
+        <li><strong>Nível de assiduidade</strong> em cada zona escolar.</li>
+        <li><strong>Detecção de atrasos</strong> via sistema dedicado.</li>
+        <li><strong>Status do terminal de acesso</strong> e fluxo de dados.</li>
+        <li><strong>Liberação automatizada</strong> de catracas e portões.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="pad" aria-hidden="true"></div>
+
+  <section>
+    <span class="kicker">// stack</span>
+    <h2>Tecnologias</h2>
+    <div class="panel stack-panel">
+      <div class="skill-group">
+        <span class="g-label">Firmware</span>
+        <div class="tags">
+          <span class="tag">Arduino UNO</span>
+          <span class="tag">C / C++ (Arduino)</span>
+          <span class="tag">Módulo Relé</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <span class="g-label">Backend &amp; Dashboard</span>
+        <div class="tags">
+          <span class="tag">Python / FastAPI</span>
+          <span class="tag">SQL / Banco de Dados</span>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="pad" aria-hidden="true"></div>
+
+  <section>
+    <span class="kicker">// demonstracao</span>
+    <h2>Vídeo</h2>
+    <p class="section-sub" style="text-align:center; margin-bottom:24px;">o VisionGate em funcionamento</p>
+
+    <!-- troque este bloco pelo seu vídeo real, por exemplo:
+         <div class="panel video-frame">
+           <video controls src="video/visiongate-demo.mp4"></video>
+         </div> -->
+    <div class="panel video-frame">
+      <video controls src="video/visiongate.mp4"></video>
+    </div>
+  </section>
+
+  <div class="pad" aria-hidden="true"></div>
+
+  <!-- EQUIPE — copie o bloco "team-card" pra adicionar mais integrantes. -->
+  <section>
+    <span class="kicker">// equipe</span>
+    <h2>Quem fez o projeto</h2>
+    <div class="team-grid">
+
+      <div class="panel team-card">
+        <h3>Rafael Gustavo (eu)</h3>
+        <span class="team-role">Site &amp; Automação com Arduino</span>
+        <p>Construiu o site ao lado do Kayke e gerenciou a automação com Arduino.</p>
+      </div>
+
+      <div class="panel team-card">
+        <h3>Kayke</h3>
+        <span class="team-role">Site</span>
+        <p>Construiu o site do projeto ao lado do Rafael.</p>
+      </div>
+
+      <div class="panel team-card">
+        <h3>João Pedro</h3>
+        <span class="team-role">Design</span>
+        <p>Responsável pelo design do projeto.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="pad" aria-hidden="true"></div>
+
+  <section>
+    <span class="kicker">// links</span>
+    <h2>Explorar o projeto</h2>
+    <div class="panel link-row">
+      <a href="https://github.com/VisionGate/VisionGatePublic" class="btn btn-primary" target="_blank" rel="noopener">Ver repositório →</a>
+    </div>
+
+    <div class="prevnext">
+      <a href="../../projetos.html" class="prev">
+        <span>← voltar</span>
+        <strong>Todos os projetos</strong>
+      </a>
+      <a href="../../contato.html" class="next">
+        <span>fale comigo →</span>
+        <strong>Contato</strong>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Rafael Gustavo · feito com fios, solda e algumas linhas de código
+  </footer>
+</div>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" type="button">fechar ✕</button>
+  <img src="" alt="">
+  <div class="lightbox-caption"></div>
+</div>
+
+<script src="../../js/script.js"></script>
+</body>
+</html>
