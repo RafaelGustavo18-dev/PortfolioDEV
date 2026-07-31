@@ -11,6 +11,9 @@
   --text-dim:      #8FA39B;
   --text-faint:    #5C7169;
   --radius:        3px;
+  --tier-gold:     #F2C94C;
+  --tier-silver:   #C7D0CD;
+  --tier-bronze:   #C97B4A;
 }
 
 *{ box-sizing: border-box; }
@@ -98,23 +101,11 @@ nav a.active::after{
   height:2px;
   background: var(--copper);
 }
-@media (max-width: 860px){
-  .navbar{ flex-wrap: wrap; row-gap: 12px; }
-  .nav-right{ width: 100%; flex-wrap: wrap; justify-content: center; gap: 10px 16px; }
-  nav{ width: 100%; }
-  nav ul{ flex-wrap: wrap; justify-content: center; gap: 10px 16px; }
-}
-
-@media (max-width: 480px){
-  nav a{ font-size: 11px; }
-  .sound-toggle{ font-size: 10px; padding: 6px 11px; }
-  .wrap{ padding: 0 16px; }
-  section{ padding-top: 64px; }
-  .chip{ padding: 34px 20px; }
-  .prose{ padding: 24px 20px; }
-  .contact-form{ padding: 26px 20px; }
-  .skills-panel, .stack-panel{ padding: 22px 20px; }
-  .prevnext .next{ text-align: left; }
+@media (max-width: 560px){
+  nav ul{ gap: 12px; }
+  nav a{ font-size: 10px; }
+  .nav-right{ gap: 12px; }
+  .sound-toggle .sound-label{ display:none; }
 }
 
 .sound-toggle{
@@ -136,7 +127,7 @@ nav a.active::after{
 .sound-toggle.is-off{ color: var(--text-faint); border-color: var(--trace-dim); }
 .sound-toggle.is-off .sound-icon{ opacity: .55; }
 
-.typewriter{ min-height: 1.1em; overflow-wrap: break-word; word-break: break-word; }
+.typewriter{ min-height: 1.1em; }
 .typewriter .cursor{
   display:inline-block;
   color: var(--copper);
@@ -210,13 +201,11 @@ h2{
 .chip{ padding: 46px 32px; text-align: center; }
 .chip .kicker{ margin-bottom: 18px; }
 .chip h1{
-  font-size: clamp(22px, 7.5vw, 52px);
+  font-size: clamp(32px, 6vw, 52px);
   font-weight: 800;
   letter-spacing: -0.01em;
   margin: 0 0 12px;
   color: var(--text);
-  overflow-wrap: break-word;
-  word-break: break-word;
 }
 .chip h1 span{ color: var(--text-faint); }
 .role{ font-size: 15px; color: var(--copper-bright); margin: 0 0 26px; letter-spacing: 0.02em; }
@@ -661,6 +650,192 @@ img.proj-thumb{
   flex-wrap: wrap;
   justify-content: center;
   padding: 30px 32px;
+}
+
+/* ===== Competições — ranqueadas por colocação ===== */
+.comp-stats{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1px;
+  background: var(--trace-dim);
+  border: 1px solid var(--trace-dim);
+  border-radius: var(--radius);
+  overflow:hidden;
+  margin-bottom: 18px;
+}
+.comp-stat{
+  background: var(--bg-panel);
+  padding: 20px 16px;
+  text-align:center;
+}
+.comp-stat-num{
+  display:block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(22px, 3.4vw, 30px);
+  font-weight: 800;
+  color: var(--copper-bright);
+}
+.comp-stat.is-gold .comp-stat-num{ color: var(--tier-gold); }
+.comp-stat-label{
+  display:block;
+  margin-top: 4px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.comp-legend{
+  display:flex;
+  flex-wrap:wrap;
+  gap: 16px;
+  justify-content:center;
+  padding: 14px 20px 26px;
+  font-size: 11px;
+  color: var(--text-faint);
+}
+.comp-legend span{ display:inline-flex; align-items:center; gap:6px; }
+.comp-legend .dot{ width:8px; height:8px; border-radius:50%; display:inline-block; }
+.comp-legend .dot.gold{ background: var(--tier-gold); }
+.comp-legend .dot.silver{ background: var(--tier-silver); }
+.comp-legend .dot.bronze{ background: var(--tier-bronze); }
+.comp-legend .dot.other{ background: var(--trace); }
+
+.comp-grid{
+  display:flex;
+  flex-direction:column;
+  gap: 14px;
+}
+.comp-card{
+  display:grid;
+  grid-template-columns: 68px 1fr;
+  gap: 20px;
+  align-items:center;
+  padding: 20px 26px;
+  border: 1px solid var(--trace-dim);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, var(--bg-panel), var(--bg-panel-2));
+  position: relative;
+  transition: transform .18s ease, border-color .18s ease;
+}
+.comp-card:hover{ transform: translateY(-3px); border-color: var(--trace); }
+
+.comp-medal{
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 800;
+  font-size: 13px;
+  border: 1px solid var(--trace);
+  color: var(--text-dim);
+  background: var(--bg);
+  overflow: hidden;
+}
+.comp-medal img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.comp-meta{ display:flex; align-items:center; gap:10px; margin-bottom: 6px; flex-wrap:wrap; }
+.comp-year{ font-size: 12px; color: var(--amber); font-weight: 700; font-family: 'JetBrains Mono', monospace; }
+.comp-card h3{ margin: 0 0 4px; font-size: 15px; color: var(--text); font-weight: 700; }
+.comp-card p{ margin:0; font-size: 13px; color: var(--text-dim); }
+.comp-place{
+  display:inline-block;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  padding: 3px 9px;
+  border-radius: 100px;
+  border: 1px solid var(--trace);
+  color: var(--text-faint);
+}
+
+/* Tier 1 — 1º lugar: card em destaque total */
+.comp-card.tier-1{
+  grid-template-columns: 80px 1fr;
+  padding: 26px 30px;
+  border-color: var(--tier-gold);
+  background: linear-gradient(135deg, rgba(242,201,76,0.10), var(--bg-panel-2) 60%);
+  box-shadow: 0 0 0 1px rgba(242,201,76,0.15), 0 10px 30px rgba(242,201,76,0.08);
+}
+.comp-card.tier-1 .comp-medal{
+  width: 62px; height:62px; font-size: 26px;
+  border-color: var(--tier-gold);
+  color: var(--tier-gold);
+  box-shadow: 0 0 16px rgba(242,201,76,0.35);
+}
+.comp-card.tier-1 h3{ font-size: 18px; }
+.comp-card.tier-1 .comp-place{ border-color: var(--tier-gold); color: var(--tier-gold); font-weight:700; }
+
+/* Tier 2 — 2º lugar */
+.comp-card.tier-2{ border-color: var(--tier-silver); }
+.comp-card.tier-2 .comp-medal{ border-color: var(--tier-silver); color: var(--tier-silver); font-size: 22px; }
+.comp-card.tier-2 .comp-place{ border-color: var(--tier-silver); color: var(--tier-silver); }
+
+/* Tier 3 — 3º lugar */
+.comp-card.tier-3{ border-color: var(--tier-bronze); }
+.comp-card.tier-3 .comp-medal{ border-color: var(--tier-bronze); color: var(--tier-bronze); font-size: 22px; }
+.comp-card.tier-3 .comp-place{ border-color: var(--tier-bronze); color: var(--tier-bronze); }
+
+/* Outras colocações — finalista, participação etc: card mais discreto */
+.comp-card.tier-other{
+  opacity: 1;
+  border-style: dashed;
+}
+.comp-card.tier-other .comp-medal{ font-size: 24px; }
+
+.comp-categories{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+/* Lista de sub-resultados dentro de um card (ex: vários robôs numa mesma
+   competição, cada um com sua própria colocação). Pra marcar o resultado
+   de um robô, troque o texto do .comp-subplace e adicione a classe
+   is-gold / is-silver / is-bronze conforme a colocação dele. */
+.comp-subresults{
+  display:flex;
+  flex-direction:column;
+  gap: 6px;
+  margin-top: 10px;
+}
+.comp-subitem{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+  padding: 8px 12px;
+  background: var(--bg);
+  border: 1px solid var(--trace-dim);
+  border-radius: var(--radius);
+}
+.comp-subname{ font-size: 13px; color: var(--text); }
+.comp-subplace{
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  padding: 3px 9px;
+  border-radius: 100px;
+  border: 1px solid var(--trace);
+  color: var(--text-faint);
+  white-space: nowrap;
+}
+.comp-subplace.is-gold{ border-color: var(--tier-gold); color: var(--tier-gold); font-weight:700; }
+.comp-subplace.is-silver{ border-color: var(--tier-silver); color: var(--tier-silver); font-weight:700; }
+.comp-subplace.is-bronze{ border-color: var(--tier-bronze); color: var(--tier-bronze); font-weight:700; }
+
+@media (max-width: 560px){
+  .comp-card{ grid-template-columns: 46px 1fr; padding: 16px 18px; gap: 14px; }
+  .comp-card.tier-1{ grid-template-columns: 52px 1fr; padding: 20px 20px; }
+  .comp-medal{ width:40px; height:40px; }
+  .comp-card.tier-1 .comp-medal{ width:48px; height:48px; font-size:20px; }
 }
 
 footer{
