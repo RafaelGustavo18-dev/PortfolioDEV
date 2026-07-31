@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupInteractionSounds();
   runTypewriter();
   setupGalleryLightbox();
+  rankCompetitions();
 });
 
 const SOUND_KEY = 'portfolio-sound-enabled';
@@ -81,7 +82,7 @@ function updateSoundToggleUI(btn){
 
 function setupInteractionSounds(){
   const hoverables = document.querySelectorAll(
-    '.btn, nav a, .module-card, .prevnext a, .proj-link, .brand, .gallery-item:has(img), .diagram-frame:has(img)'
+    '.btn, nav a, .module-card, .prevnext a, .proj-link, .brand, .gallery-item:has(img), .diagram-frame:has(img), .comp-card'
   );
   hoverables.forEach(el => {
     el.addEventListener('mouseenter', playHoverSound);
@@ -222,6 +223,40 @@ function setupContactForm(){
       if (submitBtn) submitBtn.disabled = false;
     }
   });
+}
+
+function rankCompetitions(){
+  const grid = document.getElementById('comp-grid');
+  if (!grid) return;
+
+  // colocação → peso de ordenação (menor = mais alto no ranking)
+  // competições "em andamento" (place não numérico) vão sempre pro final, depois das já finalizadas
+  function weightFor(place){
+    const n = Number(place);
+    return Number.isFinite(n) ? n : Infinity;
+  }
+  const cards = Array.from(grid.querySelectorAll('.comp-card'));
+
+  cards.sort((a, b) => {
+    const wa = weightFor(a.dataset.place);
+    const wb = weightFor(b.dataset.place);
+    if (wa !== wb) return wa - wb;
+    return (Number(b.dataset.year) || 0) - (Number(a.dataset.year) || 0);
+  });
+
+  cards.forEach(card => grid.appendChild(card));
+
+  const total = cards.length;
+  const golds = cards.filter(c => c.dataset.place === '1').length;
+  const podiums = cards.filter(c => ['1', '2', '3'].includes(c.dataset.place)).length;
+
+  const setStat = (id, value) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = value;
+  };
+  setStat('stat-total', total);
+  setStat('stat-gold', golds);
+  setStat('stat-podium', podiums);
 }
 
 function setupGalleryLightbox(){
