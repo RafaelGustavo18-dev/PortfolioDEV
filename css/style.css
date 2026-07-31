@@ -98,11 +98,23 @@ nav a.active::after{
   height:2px;
   background: var(--copper);
 }
-@media (max-width: 560px){
-  nav ul{ gap: 12px; }
-  nav a{ font-size: 10px; }
-  .nav-right{ gap: 12px; }
-  .sound-toggle .sound-label{ display:none; }
+@media (max-width: 860px){
+  .navbar{ flex-wrap: wrap; row-gap: 12px; }
+  .nav-right{ width: 100%; flex-wrap: wrap; justify-content: center; gap: 10px 16px; }
+  nav{ width: 100%; }
+  nav ul{ flex-wrap: wrap; justify-content: center; gap: 10px 16px; }
+}
+
+@media (max-width: 480px){
+  nav a{ font-size: 11px; }
+  .sound-toggle{ font-size: 10px; padding: 6px 11px; }
+  .wrap{ padding: 0 16px; }
+  section{ padding-top: 64px; }
+  .chip{ padding: 34px 20px; }
+  .prose{ padding: 24px 20px; }
+  .contact-form{ padding: 26px 20px; }
+  .skills-panel, .stack-panel{ padding: 22px 20px; }
+  .prevnext .next{ text-align: left; }
 }
 
 .sound-toggle{
