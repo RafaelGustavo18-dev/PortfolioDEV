@@ -136,7 +136,7 @@ nav a.active::after{
 .sound-toggle.is-off{ color: var(--text-faint); border-color: var(--trace-dim); }
 .sound-toggle.is-off .sound-icon{ opacity: .55; }
 
-.typewriter{ min-height: 1.1em; }
+.typewriter{ min-height: 1.1em; overflow-wrap: break-word; word-break: break-word; }
 .typewriter .cursor{
   display:inline-block;
   color: var(--copper);
@@ -210,11 +210,13 @@ h2{
 .chip{ padding: 46px 32px; text-align: center; }
 .chip .kicker{ margin-bottom: 18px; }
 .chip h1{
-  font-size: clamp(32px, 6vw, 52px);
+  font-size: clamp(22px, 7.5vw, 52px);
   font-weight: 800;
   letter-spacing: -0.01em;
   margin: 0 0 12px;
   color: var(--text);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 .chip h1 span{ color: var(--text-faint); }
 .role{ font-size: 15px; color: var(--copper-bright); margin: 0 0 26px; letter-spacing: 0.02em; }
