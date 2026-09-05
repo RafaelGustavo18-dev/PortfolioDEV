@@ -817,6 +817,12 @@ img.proj-thumb{
   border: 1px solid var(--trace-dim);
   border-radius: var(--radius);
 }
+.comp-subitem.is-gold{
+  border-color: var(--tier-gold);
+  background: rgba(242,201,76,0.10);
+  box-shadow: 0 0 12px rgba(242,201,76,0.15);
+}
+.comp-subitem.is-gold .comp-subname{ color: var(--tier-gold); font-weight: 700; }
 .comp-subname{ font-size: 13px; color: var(--text); }
 .comp-subplace{
   font-size: 10px;
