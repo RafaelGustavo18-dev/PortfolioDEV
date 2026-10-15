@@ -246,9 +246,21 @@ function rankCompetitions(){
 
   cards.forEach(card => grid.appendChild(card));
 
+  // Colocações contadas por modalidade: se o card tem células (.comp-subitem),
+  // cada célula conta como uma colocação; senão vale o data-place do card.
+  // Pódio = do 1º ao 5º lugar.
+  function placementsOf(card){
+    const subs = Array.from(card.querySelectorAll('.comp-subplace'));
+    const raw = subs.length ? subs.map(el => el.textContent) : [card.dataset.place];
+    return raw
+      .map(text => parseInt(String(text).trim(), 10))
+      .filter(n => Number.isFinite(n));
+  }
+  const allPlacements = cards.flatMap(placementsOf);
+
   const total = cards.length;
-  const golds = cards.filter(c => c.dataset.place === '1').length;
-  const podiums = cards.filter(c => ['1', '2', '3'].includes(c.dataset.place)).length;
+  const golds = allPlacements.filter(n => n === 1).length;
+  const podiums = allPlacements.filter(n => n >= 1 && n <= 5).length;
 
   const setStat = (id, value) => {
     const el = document.getElementById(id);
